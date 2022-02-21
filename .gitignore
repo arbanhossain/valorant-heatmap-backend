@@ -1,0 +1,8 @@
+__pycache__
+*.jpg
+*.png
+*.svg
+index.html
+make_img.py
+style.css
+script.js

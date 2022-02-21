@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+  position: relative;
+}
+.container > img{
+  position: absolute;
+  top:0;
+  left:0;
+}
+/* .container > .map{
+  height: 828px;
+  width: 770px;
+  z-index: 2;
+  opacity: 0.5;
+  margin-left: 133px;
+  margin-top: 0px;
+} */
+
+.container > .map{
+  height: 618px;
+  width: 823px;
+  z-index: 2;
+  opacity: 0.5;
+  margin-left: 200px;
+  margin-top: 185px;
+}
+
+.container > .plot{
+  width: 1180px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="map" src="bonsai.png" />
+    <img class="plot" src="plot.svg" />
+  </div>
+</body>
+</html>
