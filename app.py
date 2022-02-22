@@ -27,4 +27,4 @@ def get_plotted_image():
 
 if __name__ == "__main__":
   port = 5000
-  app.run(port=port, debug=True)
+  app.run(host="192.168.1.108",port=port, debug=True)
