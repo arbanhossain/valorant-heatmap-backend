@@ -3,8 +3,6 @@ from models import MatchModel, Map
 from Constants import *
 from utils import *
 import matplotlib.pyplot as plt
-import mplcursors
-import copy
 
 if __name__ == '__main__':
   data: dict = {}
