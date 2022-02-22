@@ -101,7 +101,7 @@ def plot_image(kills, map_details, annotation=(0,0)):
   s = io.BytesIO()
   plt.savefig(s, format="svg")
   plt.close()
-  # s = base64.b64encode(s.getvalue()).decode("utf-8").replace("\n", "")
+  s = base64.b64encode(s.getvalue()).decode("utf-8").replace("\n", "")
   # # plt.savefig('plot.svg')
   # return "data:image/png;base64,%s" % s
-  return s.getvalue()
+  return s
