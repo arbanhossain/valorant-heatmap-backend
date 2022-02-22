@@ -26,5 +26,4 @@ def get_plotted_image():
   return plot_image(kills, map_details)
 
 if __name__ == "__main__":
-  port = 5000
-  app.run(host="192.168.1.108",port=port, debug=True)
+  app.run(debug=True, use_reloader=True)
