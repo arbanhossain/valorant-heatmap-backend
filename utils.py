@@ -86,8 +86,10 @@ def plot_image(kills, map_details, annotation=(0,0)):
       victim_x: float = (victim_loc["x"]*scale_factor["x"] + offsets["x"])
       victim_y: float = (victim_loc["y"]*scale_factor["y"] + offsets["y"])
 
-      killer_color: str = 'green' if kill["killer_team"] == 'Blue' else 'red'
-      victim_color: str = 'red' if kill["killer_team"] == 'Blue' else 'green'
+      # killer_color: str = 'green' if kill["killer_team"] == 'Blue' else 'red'
+      # victim_color: str = 'red' if kill["killer_team"] == 'Blue' else 'green'
+      killer_color: str = 'green'
+      victim_color: str = 'red'
       # first plot line between markers
       plt.plot([killer_x, victim_x],[killer_y, victim_y], color='#aaaaaa', linewidth=1)
       # then plot killer marker
