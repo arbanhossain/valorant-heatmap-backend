@@ -26,6 +26,7 @@ def filter_data(data: list, options: dict = None):
     'player': list, // ex: [player_id_1, player_id_2]
     'side': list, // ex: ['ATK', 'DEF']
     'time': int, // ex: 10000 (in ms)
+    'round': list, // ex: [1, 2, 3, 4, 5]
   }
   '''
   # check if no options are provided
@@ -54,6 +55,8 @@ def filter_data(data: list, options: dict = None):
       if 'side' in options and options['side'] != [] and kill['kill_side'] not in options['side']:
         if can_take == True: can_take = False
       if 'time' in options and kill['kill_time'] > options['time']:
+        if can_take == True: can_take = False
+      if 'round' in options and options['round'] != [] and kill['kill_round'] not in options['round']:
         if can_take == True: can_take = False
       
       # check if the flag is still true after all the validation
