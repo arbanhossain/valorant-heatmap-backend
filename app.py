@@ -15,18 +15,20 @@ def match_data(match_id: str):
   response.headers.add('Access-Control-Allow-Origin', '*')
   return response
 
-@app.route("/api/utils/filter", methods=['POST'])
+@app.route("/api/utils/filter", methods=['POST', 'GET'])
 def get_filtered_data():
-  kill_data = request.get_json()["kill_data"]
-  options = request.get_json()["options"]
+  data = json.loads(request.get_data().decode('utf8'))
+  kill_data = data["kill_data"]
+  options = data["options"]
   response = jsonify({ "data": filter_data(kill_data, options) })
   response.headers.add('Access-Control-Allow-Origin', '*')
   return response
 
-@app.route("/api/utils/plot", methods=['POST'])
+@app.route("/api/utils/plot", methods=['POST', 'GET'])
 def get_plotted_image():
-  kills = request.get_json()["data"]
-  map_details = request.get_json()["map_details"]
+  data = json.loads(request.get_data().decode('utf8'))
+  kills = data["data"]
+  map_details = data["map_details"]
   response = jsonify( {"data": plot_image(kills, map_details)} )
   response.headers.add('Access-Control-Allow-Origin', '*')
   return response
