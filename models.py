@@ -21,7 +21,7 @@ class MatchModel:
     players: list = []
     for player in data:
       # for every player get their id, name, team and played character
-      players.append({"id": player['subject'], "name": player['gameName'], 'team': player['teamId'], 'character': player['characterId']})
+      players.append({"id": player['puuid'], "name": player['gameName'], 'team': player['teamId'], 'character': player['characterId']})
     return players
   
   # makes a kills only data list from the match data
@@ -53,7 +53,7 @@ class MatchModel:
             # riot does not provide the location of the killer directly, probably due to fog of war, so we try to get it from the all player position list
             # check the position of each member available in the all position list
             # generate a list consisting of the location of only the killer
-            killer_location_array = [i for i in kill["playerLocations"] if i['subject'] == player["subject"] ]
+            killer_location_array = [i for i in kill["playerLocations"] if i['puuid'] == player["puuid"] ]
             # if the list is empty set location to none
             killer_location = None if len(killer_location_array) == 0 else killer_location_array[0]['location']
             # increase the none counter of the match instance
@@ -72,7 +72,7 @@ class MatchModel:
             else:
               kill_side = None
             # append id + name + location of the killer and victim and the kill time
-            kills_in_round.append({'killer_id': killer, 'killer_name': killer_name, 'victim_id': victim, 'victim_name': victim_name, 'killer_location': killer_location, 'victim_location': victim_location, 'kill_time': kill['roundTime'], 'killer_team': killer_team, "kill_side": kill_side, "kill_round": rnd["roundNum"]})
+            kills_in_round.append({'killer_id': killer, 'killer_name': killer_name, 'victim_id': victim, 'victim_name': victim_name, 'killer_location': killer_location, 'victim_location': victim_location, 'kill_time': kill['timeSinceRoundStartMillis'], 'killer_team': killer_team, "kill_side": kill_side, "kill_round": rnd["roundNum"]})
             # print(killer_name, '-->', victim_name, victim_location, 'at', kill['roundTime'])
       kills_by_round.append(kills_in_round)
     return kills_by_round
