@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, Response, jsonify
+import requests
 from models import MatchModel
 from Constants import *
 from utils import *
@@ -8,8 +9,10 @@ app = Flask(__name__)
 
 @app.route("/api/matches/<match_id>", methods=['GET'])
 def match_data(match_id: str):
-  if match_id == "c8d8bc50-c030-4abf-a27e-66b1c157429c":
-    match_data = json.loads(open("example_split_game.json").read())
+  # if match_id == "c8d8bc50-c030-4abf-a27e-66b1c157429c":
+  #   match_data = json.loads(open("example_split_game.json").read())
+  req_headers = {"X-Riot-Token": "RGAPI-bf3c8e7b-5c52-4acd-a3a3-eddbfa50c2c8"}
+  match_data = requests.get(f"https://ap.api.riotgames.com/val/match/v1/matches/{match_id}", headers=req_headers).json()
   match: MatchModel = MatchModel(match_data)
   response = jsonify({"players": match.get_players(), "kill_data": match.duel_data, "map_details": MAP[match.get_map()]})
   response.headers.add('Access-Control-Allow-Origin', '*')
