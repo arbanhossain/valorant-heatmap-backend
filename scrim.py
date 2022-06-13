@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
   data: dict = {}
-  with open('example_split_game.json', 'r') as f:
+  with open('example_icebox_game.json', 'r') as f:
     data = json.loads(f.read())
   
   # bounding boxes,
@@ -31,9 +31,8 @@ if __name__ == '__main__':
 
   offsets: dict = { "x": 0, "y": 0 }
 
-  kills = filter_data(kill_data, players, {
-    'team': ['Blue'],
-    'side': ['DEF'],
+  kills = filter_data(kill_data, {
+    'side': ['ATK']
   })
   print(len(kills))
   for kill in kills:
@@ -69,5 +68,5 @@ if __name__ == '__main__':
   # mplcursors.cursor(hover=True)
   # img = plt.imread('bonsai.png')
   # plt.imshow(img)
-  # plt.show()
+  plt.show()
   plt.savefig('plot.svg')
