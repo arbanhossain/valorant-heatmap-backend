@@ -65,12 +65,7 @@ class MatchModel:
             # get which team the killer was on
             killer_team: str = [i for i in self.all_players if i["id"] == killer][0]['team']
             # check which side (atk/def) the killer was on
-            if killer_team == 'Red':
-              kill_side: str = 'ATK' if rnd["roundNum"] < 12 else 'DEF'
-            elif killer_team == 'Blue':
-              kill_side: str = 'DEF' if rnd["roundNum"] < 12 else 'ATK'
-            else:
-              kill_side = None
+            kill_side: str = 'ATK' if rnd["roundNum"] < 12 else 'DEF'
             # append id + name + location of the killer and victim and the kill time
             kills_in_round.append({'killer_id': killer, 'killer_name': killer_name, 'victim_id': victim, 'victim_name': victim_name, 'killer_location': killer_location, 'victim_location': victim_location, 'kill_time': kill['timeSinceRoundStartMillis'], 'killer_team': killer_team, "kill_side": kill_side, "kill_round": rnd["roundNum"]})
             # print(killer_name, '-->', victim_name, victim_location, 'at', kill['roundTime'])
