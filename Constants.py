@@ -31,5 +31,38 @@ MAP: dict = {
       "bottom_left": { "x": 2790, "y": -5210 },
       "bottom_right": { "x": 13710, "y": -5210 },
     }
+  },
+  "/Game/Maps/Duality/Duality": {
+    "id": "duality",
+    "name": "Bind",
+    "multipliers": {"x": 1, "y": -1},
+    "bounding_box": {
+      "top_left": { "x": 2500, "y": 7400 },
+      "top_right": { "x": 14500, "y": 7400 },
+      "bottom_left": { "x": 2500, "y": -5300 },
+      "bottom_right": { "x": 14500, "y": -5300 },
+    }
+  },
+  "/Game/Maps/Ascent/Ascent": {
+    "id": "ascent",
+    "name": "Ascent",
+    "multipliers": {"x": 1, "y": -1},
+    "bounding_box": {
+      "top_left": { "x": -5450, "y": 11700 },
+      "top_right": { "x": 8000, "y": 11700 },
+      "bottom_left": { "x": -5450, "y": -2800 },
+      "bottom_right": { "x": 8000, "y": -2800 },
+    }
+  },
+  "/Game/Maps/Triad/Triad": {
+    "id": "triad",
+    "name": "Haven",
+    "multipliers": {"x": 1, "y": -1},
+    "bounding_box": {
+      "top_left": { "x": -4210, "y": 14680 },
+      "top_right": { "x": 7910, "y": 14680 },
+      "bottom_left": { "x": -4210, "y": 1200 },
+      "bottom_right": { "x": 7910, "y": 1200 },
+    }
   }
 }
